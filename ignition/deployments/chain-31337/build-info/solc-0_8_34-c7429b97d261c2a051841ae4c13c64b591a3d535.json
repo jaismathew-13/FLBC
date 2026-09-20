@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_34-c7429b97d261c2a051841ae4c13c64b591a3d535",
+  "solcVersion": "0.8.34",
+  "solcLongVersion": "0.8.34+commit.80d5c536",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.17.0"
+  },
+  "userSourceNameMap": {
+    "contracts/ModelRegistry.sol": "project/contracts/ModelRegistry.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "osaka",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/ModelRegistry.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.24;\r\n\r\ncontract ModelRegistry {\r\n\r\n    struct ModelUpdate {\r\n        string cid;\r\n        address submittedBy;\r\n        uint256 timestamp;\r\n    }\r\n\r\n    ModelUpdate[] public modelUpdates;\r\n\r\n    function submitModelUpdate(string memory _cid) public {\r\n        modelUpdates.push(\r\n            ModelUpdate(\r\n                _cid,\r\n                msg.sender,\r\n                block.timestamp\r\n            )\r\n        );\r\n    }\r\n\r\n    function getModelUpdate(uint256 index)\r\n        public\r\n        view\r\n        returns (\r\n            string memory,\r\n            address,\r\n            uint256\r\n        )\r\n    {\r\n        ModelUpdate memory update = modelUpdates[index];\r\n\r\n        return (\r\n            update.cid,\r\n            update.submittedBy,\r\n            update.timestamp\r\n        );\r\n    }\r\n}"
+      }
+    }
+  }
+}
