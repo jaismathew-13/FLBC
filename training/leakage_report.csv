@@ -1,0 +1,3 @@
+split,class,file,matches_file,hamming_distance
+train,NORMAL,D:\Vivek\train\NORMAL\IM-0172-0001.jpeg,D:\Vivek\test\NORMAL\IM-0172-0001_aug_2594.jpg,10
+train,NORMAL,D:\Vivek\train\NORMAL\NORMAL2-IM-0886-0001.jpeg,D:\Vivek\test\NORMAL\NORMAL2-IM-0886-0001_aug_230.jpg,8
